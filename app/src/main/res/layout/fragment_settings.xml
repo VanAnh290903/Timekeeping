@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:text="@string/setting"
+        android:textAlignment="center"
+        android:textSize="@dimen/_30ssp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/inforManage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewHeader"
+        android:layout_marginTop="@dimen/_30sdp">
+
+        <ImageView
+            android:id="@+id/imgAvtManager"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/img_avatar_default" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgAvtManager"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:text="Van Anh"
+            android:textSize="@dimen/_30ssp" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_Language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inforManage"
+        android:layout_marginLeft="@dimen/_40sdp"
+        android:layout_marginRight="@dimen/_40sdp"
+        android:backgroundTint="@color/pink"
+        android:text="@string/language" />
+
+    <Button
+        android:id="@+id/btn_ChangePass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_Language"
+        android:layout_marginLeft="@dimen/_40sdp"
+        android:layout_marginRight="@dimen/_40sdp"
+        android:backgroundTint="@color/pink"
+        android:text="@string/change_password" />
+
+    <Button
+        android:id="@+id/btn_Logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_ChangePass"
+        android:layout_marginLeft="@dimen/_40sdp"
+        android:layout_marginRight="@dimen/_40sdp"
+        android:backgroundTint="@color/pink"
+        android:text="@string/logout" />
+
+</RelativeLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Chấm công</string>
+    <!--Login-->
+    <string name="login">Đăng nhập</string>
+    <string name="login_up">ĐĂNG NHẬP</string>
+    <string name="username">Tài khoản</string>
+    <string name="password">Mật khẩu</string>
+    <!--Menu-->
+    <string name="homepage">Trang chủ</string>
+    <string name="timekeeping">Chấm công</string>
+    <string name="salary">Lương</string>
+    <string name="setting">Cài đặt</string>
+    <!--Setting-->
+    <string name="manager_name">Tên quản lý</string>
+    <string name="language">Ngôn ngữ</string>
+    <string name="change_password">Đổi mật khẩu</string>
+    <string name="logout">Đăng xuất</string>
+    <!--Homepage-->
+    <string name="staff_list">Danh sách nhân viên</string>
+    <!--staff-->
+    <string name="staff_information">Thông tin nhân viên</string>
+    <string name="select_photo">Chọn ảnh</string>
+    <string name="gender">Giới tính</string>
+    <string name="staff_code">Mã nhân viên</string>
+    <string name="staff_fullname">Tên nhân viên</string>
+    <string name="date_of_birth">Ngày sinh</string>
+    <string name="basic_salary">Lương cơ bản</string>
+    <string name="delete">Xóa</string>
+    <string name="edit">Sửa</string>
+    <string name="timekeeping_details">Chi tiết chấm công</string>
+    <string name="update">Cập nhật</string>
+    <string name="cancel">Hủy</string>
+    <string name="add_staff">Thêm nhân viên</string>
+    <string name="Done">Xong</string>
+    <string name="male">Nam</string>
+    <string name="female">Nữ</string>
+    <string name="idStaff">Mã nhân viên</string>
+    <string name="nameStaff">Tên Nhân Viên</string>
+
+    <!--Timekeeping-->
+    <string name="timekeeping_list">Danh sách chấm công</string>
+    <string name="no_staff_yet">Chưa có nhân viên vào được chấm công trong hôm nay! Hãy nhấn biểu tượng chấm công để chấm công nhân viên</string>
+    <string name="complete">Hoàn thành</string>
+    <string name="review_timekeeping">Xem lại chấm công</string>
+    <string name="come_back">Quay lại</string>
+    <string name="confirm">Xác nhận</string>
+    <!--Timekeeping details-->
+    <string name="first_and_last_name">Họ và tên</string>
+    <string name="total_salary">Tổng lương</string>
+    <!--Salary-->
+    <string name="salary_list">Danh sách lương</string>
+    <!--Search-->
+    <string name="search">Tìm kiếm</string>
+</resources>

@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Timekeeping</string>
+    <!--Login-->
+    <string name="login">Log in</string>
+    <string name="login_up">LOGIN</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <!--Menu-->
+    <string name="homepage">Home page</string>
+    <string name="timekeeping">Timekeeping</string>
+    <string name="salary">Salary</string>
+    <string name="setting">Settings</string>
+    <!--Setting-->
+    <string name="manager_name">Manager name</string>
+    <string name="language">Language</string>
+    <string name="change_password">Change password</string>
+    <string name="logout">Log out</string>
+    <!--Homepage-->
+    <string name="staff_list">Staff list</string>
+    <!--staff-->
+    <string name="staff_information">Employee information</string>
+    <string name="select_photo">Select photo</string>
+    <string name="gender">Gender</string>
+    <string name="staff_code">Employee code</string>
+    <string name="staff_fullname">Employee name</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="basic_salary">Basic salary</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="timekeeping_details">Timekeeping details</string>
+    <string name="update">Update</string>
+    <string name="cancel">Cancel</string>
+    <string name="add_staff">Add staff</string>
+    <string name="Done">Done</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="idStaff">ID</string>
+    <string name="nameStaff">FullName</string>
+
+
+    <!--Timekeeping-->
+    <string name="timekeeping_list">Timekeeping list</string>
+    <string name="no_staff_yet">No employees have clocked in today! Click the time attendance icon to time employees</string>
+    <string name="complete">Completed</string>
+    <string name="review_timekeeping">Review timekeeping</string>
+    <string name="come_back">Come back</string>
+    <string name="confirm">Confirm</string>
+    <!--Timekeeping details-->
+    <string name="first_and_last_name">Full name</string>
+    <string name="total_salary">Total salary</string>
+    <!--Salary-->
+    <string name="salary_list">Salary list</string>
+    <!--Search-->
+    <string name="search">Search</string>
+</resources>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".activities.MainActivity"
+    android:layout_marginTop="70dp">
+
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/img_login"
+        android:layout_gravity="center"
+        android:layout_marginBottom="40dp"/>
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/login_up"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iconloginusername"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/iconusername" />
+
+
+        <EditText
+            android:layout_toRightOf="@+id/iconloginusername"
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+
+            android:ems="10"
+            android:hint="@string/username"
+            android:inputType="textPersonName"
+            android:textColorHint="@color/black"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
+            android:background="@drawable/backgroundlogin"
+
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iconloginuserpassword"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/icpassword"/>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/iconloginuserpassword"
+            android:background="@drawable/backgroundlogin"
+            android:ems="10"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColorHint="@color/black" />
+
+    </RelativeLayout>
+
+
+    <!--    cho 3 edit text vào 1 lay out, sau đó chọn chiều layout, -->
+    <!--    layout weight dùng để chia phần-->
+    <!--    android:orientation="horizontal" là hướng chiều ngang-->
+    <!--    android:orientation="vertical" hướng chiều dọc-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="horizontal">-->
+
+<!--    </LinearLayout>-->
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:paddingHorizontal="50dp"
+        android:text="@string/login"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/pink"
+        />
+
+
+</LinearLayout>

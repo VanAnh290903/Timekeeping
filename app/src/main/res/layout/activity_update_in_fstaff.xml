@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/_10sdp"
+    tools:context=".activities.DetailStaffActivity">
+
+    <RelativeLayout
+        android:id="@+id/titleMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+          <TextView
+            android:id="@+id/titleUpDateInfStaff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/staff_information"
+            android:textSize="@dimen/_20ssp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/img_avtUpdateStaff"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_below="@+id/titleMain"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:src="@drawable/img_avatar_default" />
+
+
+    <RelativeLayout
+        android:id="@+id/inf_UGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_avtUpdateStaff"
+        android:layout_marginTop="@dimen/_30sdp"
+        >
+
+
+        <TextView
+            android:id="@+id/lable_UGender"
+            style="@style/StringStaff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gender"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            style="@style/StringStaff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_95sdp"
+            android:text=":"
+            android:layout_centerVertical="true"/>
+        <RadioGroup
+            android:id="@+id/genderRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/_80sdp"
+            android:layout_toRightOf="@id/lable_UGender"
+            >
+
+            <RadioButton
+                android:id="@+id/maleRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/male"
+                style="@style/StringStaff"/>
+
+            <RadioButton
+                android:id="@+id/femaleRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/female"
+                android:layout_marginLeft="@dimen/_20sdp"
+                style="@style/StringStaff"/>
+        </RadioGroup>
+
+<!--        <TextView-->
+<!--            android:id="@+id/result_UGender"-->
+<!--            style="@style/StringStaff"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="@dimen/_120sdp"-->
+<!--            android:text="@string/female" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/result_UMale"-->
+<!--            style="@style/StringStaff"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_toRightOf="@+id/result_UGender"-->
+<!--            android:layout_marginLeft="@dimen/_40sdp"-->
+<!--            android:text="@string/male" />-->
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/inf_UidStaff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inf_UGender"
+        android:layout_marginTop="@dimen/_30sdp"
+
+        >
+
+        <TextView
+            android:id="@+id/lable_UID"
+            style="@style/StringStaff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/idStaff" />
+
+        <TextView
+            style="@style/StringStaff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_95sdp"
+            android:text=":" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/inf_UnameStaff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inf_UidStaff"
+        android:layout_marginTop="@dimen/_30sdp"
+
+        >
+
+        <TextView
+            android:id="@+id/lable_UName"
+            style="@style/StringStaff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nameStaff" />
+
+        <TextView
+            style="@style/StringStaff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_95sdp"
+            android:text=":" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/inf_UbirthdayStaff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inf_UnameStaff"
+        android:layout_marginTop="@dimen/_30sdp"
+
+        >
+
+        <TextView
+            android:id="@+id/lable_UBirthday"
+            style="@style/StringStaff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date_of_birth" />
+
+        <TextView
+            style="@style/StringStaff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_95sdp"
+            android:text=":" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/inf_UBasicSalary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inf_UbirthdayStaff"
+        android:layout_marginTop="@dimen/_30sdp"
+
+        >
+
+        <TextView
+            android:id="@+id/lable_USalary"
+            style="@style/StringStaff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/basic_salary" />
+
+        <TextView
+            style="@style/StringStaff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_95sdp"
+            android:text=":" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/UButtons"
+        android:layout_below="@id/inf_UBasicSalary"
+        android:layout_centerInParent="true"
+        >
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:paddingHorizontal="50dp"
+            android:text="@string/update"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/pink"
+            />
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:paddingHorizontal="50dp"
+            android:text="@string/cancel"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/pink_light"
+            android:layout_below="@id/btnUpdate"
+            android:textColor="@color/black"
+            />
+    </RelativeLayout>
+</RelativeLayout>

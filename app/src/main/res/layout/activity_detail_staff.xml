@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".activities.DetailStaffActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        >
+
+        <RelativeLayout
+            android:id="@+id/titleMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_prev" />
+
+            <TextView
+                android:id="@+id/titleInfStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/staff_information"
+                android:textSize="@dimen/_20ssp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/ic_viewMenuifStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_menu"
+                android:padding="@dimen/_10sdp"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/img_avtStaff"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_below="@+id/titleMain"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:src="@drawable/img_avatar_default" />
+
+
+        <TableLayout
+            android:visibility="gone"
+            android:id="@+id/menu_staff"
+            android:layout_below="@id/titleMain"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <TableRow
+                android:id="@+id/btnEdit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_content"
+                android:paddingVertical="@dimen/_5sdp"
+                android:paddingHorizontal="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/btnDelete"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_content"
+                android:paddingVertical="@dimen/_5sdp"
+                android:paddingHorizontal="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delete" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_content"
+                android:paddingVertical="@dimen/_5sdp"
+                android:paddingHorizontal="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View ... " />
+            </TableRow>
+        </TableLayout>
+
+        <RelativeLayout
+            android:id="@+id/inf_Gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img_avtStaff"
+            android:layout_marginTop="@dimen/_30sdp">
+
+            <TextView
+                android:id="@+id/lable_Gender"
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gender" />
+
+            <TextView
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_95sdp"
+                android:text=":" />
+
+            <TextView
+                android:id="@+id/result_Gender"
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_120sdp"/>
+            <RadioGroup
+                android:visibility="gone"
+                android:id="@+id/editGenderRadioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="@dimen/_120sdp"
+                >
+
+                <RadioButton
+                    android:id="@+id/maleRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/male"
+                    style="@style/StringStaff"/>
+
+                <RadioButton
+                    android:id="@+id/femaleRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/female"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    style="@style/StringStaff"/>
+            </RadioGroup>
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:id="@+id/inf_idStaff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inf_Gender"
+            android:layout_marginTop="@dimen/_30sdp"
+
+            >
+
+            <TextView
+                android:id="@+id/lable_ID"
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/idStaff" />
+
+            <TextView
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_95sdp"
+                android:text=":" />
+
+            <TextView
+                android:id="@+id/result_ID"
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_120sdp"
+                android:text="" />
+            </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/inf_nameStaff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inf_idStaff"
+            android:layout_marginTop="@dimen/_30sdp"
+
+            >
+
+            <TextView
+                android:id="@+id/lable_Name"
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nameStaff" />
+
+            <TextView
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_95sdp"
+                android:text=":" />
+
+            <TextView
+                android:id="@+id/result_Name"
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_120sdp"
+                android:text="" />
+            <EditText
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editFullname"
+                android:layout_marginLeft="@dimen/_120sdp"
+                />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/inf_birthdayStaff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inf_nameStaff"
+            android:layout_marginTop="@dimen/_30sdp"
+
+            >
+
+            <TextView
+                android:id="@+id/lable_Birthday"
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date_of_birth" />
+
+            <TextView
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_95sdp"
+                android:text=":" />
+
+            <TextView
+                android:id="@+id/result_DateOfBirth"
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_120sdp"
+                android:text="" />
+            <EditText
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editBirth"
+                android:layout_marginLeft="@dimen/_120sdp"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/inf_BasicSalary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inf_birthdayStaff"
+            android:layout_marginTop="@dimen/_30sdp"
+
+            >
+
+            <TextView
+                android:id="@+id/lable_Salary"
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/basic_salary" />
+
+            <TextView
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_95sdp"
+                android:text=":" />
+
+            <TextView
+                android:id="@+id/result_BasicSalary"
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_120sdp"
+                android:text="" />
+            <EditText
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editBsSalary"
+                android:layout_marginLeft="@dimen/_120sdp"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/UButtons"
+            android:layout_below="@id/inf_BasicSalary"
+            android:layout_centerInParent="true"
+            >
+            <Button
+                android:id="@+id/btnUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:paddingHorizontal="50dp"
+                android:text="@string/update"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/pink"
+                />
+            <Button
+                android:id="@+id/btnCancelU"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:paddingHorizontal="50dp"
+                android:text="@string/cancel"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/pink_light"
+                android:layout_below="@id/btnUpdate"
+                android:textColor="@color/black"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

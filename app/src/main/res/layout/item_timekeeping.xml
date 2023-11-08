@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_130sdp"
+    android:background="@drawable/bg_inforstaff"
+    android:padding="@dimen/_5sdp"
+    android:id="@+id/item_TimekeepingStaff"
+    android:layout_marginVertical="@dimen/_5sdp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_70sdp"
+        android:id="@+id/groupif">
+        <ImageView
+        android:id="@+id/imgAvtStaff"
+        android:layout_width="@dimen/_64sdp"
+        android:layout_height="@dimen/_64sdp"
+        android:src="@drawable/img_avatar_default" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imgAvtStaff"
+            android:id="@+id/staffName"
+            android:textSize="@dimen/_25ssp"
+            android:layout_alignParentTop="true"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imgAvtStaff"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/staffId"
+            android:textSize="@dimen/_20ssp"
+            />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/groupif"
+        android:id="@+id/group_btntk"
+        >
+      <ImageView
+          android:id="@+id/btn_accept"
+          android:layout_width="@dimen/_60sdp"
+          android:layout_height="@dimen/_40sdp"
+          android:src="@drawable/ic_accept"
+          android:padding="@dimen/_5sdp"
+          android:background="@drawable/bg_inforstaff"
+          android:backgroundTint="@color/green"
+          android:layout_marginLeft="@dimen/_40sdp"/>
+        <ImageView
+            android:id="@+id/btn_late"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/ic_alarmtime"
+            android:padding="@dimen/_5sdp"
+            android:background="@drawable/bg_inforstaff"
+            android:backgroundTint="@color/beige"
+            android:layout_toRightOf="@+id/btn_accept"
+            android:layout_marginLeft="@dimen/_20sdp"
+            />
+        <ImageView
+            android:id="@+id/btn_off"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/ic_stop"
+            android:padding="@dimen/_5sdp"
+            android:background="@drawable/bg_inforstaff"
+            android:backgroundTint="@color/pink_light"
+            android:layout_toRightOf="@+id/btn_late"
+            android:layout_marginLeft="@dimen/_20sdp"/>
+    </RelativeLayout>
+</RelativeLayout>

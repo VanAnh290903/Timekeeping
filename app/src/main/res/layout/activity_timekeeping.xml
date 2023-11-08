@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <RelativeLayout
+            android:id="@+id/titleHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/titleView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="20dp"
+                android:text="@string/timekeeping"
+                android:textAlignment="center"
+                android:textSize="@dimen/_25ssp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titleHeader"
+            android:background="@drawable/backgroundsearch"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/search">
+
+            <ImageView
+                android:id="@+id/icsearchImg"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_search"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:id="@+id/search_src_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/icsearchImg"
+                android:hint="@string/search"
+                android:padding="10dp"
+
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <ImageView
+                android:id="@+id/icCancel"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/ic_stop"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
+        <TextClock
+            android:format24Hour="d-M-yyyy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/search"
+            android:id="@+id/viewTime"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rcvTimeKeepingList"
+            android:layout_below="@id/viewTime"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rcvTimeKeepingList"
+            >
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_40sdp"
+                android:paddingHorizontal="@dimen/_30sdp"
+                android:text="@string/cancel"
+                android:backgroundTint="@color/gray"
+                android:textColor="@color/black"
+                />
+            <Button
+                android:id="@+id/btnDone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:paddingHorizontal="@dimen/_30sdp"
+                android:text="@string/Done"
+                android:backgroundTint="@color/pink"
+                android:layout_toRightOf="@id/btnCancel"
+                />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

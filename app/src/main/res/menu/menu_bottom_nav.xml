@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_home"
+        android:title="@string/homepage"
+        android:icon="@drawable/ic_homepage" />
+    <item
+        android:id="@+id/action_timekeeping"
+        android:title="@string/timekeeping"
+        android:icon="@drawable/ic_timekeeping"/>
+    <item
+        android:id="@+id/action_salary"
+        android:title="@string/salary"
+        android:icon="@drawable/ic_salary"/>
+
+    <item
+        android:id="@+id/action_setting"
+        android:title="@string/setting"
+        android:icon="@drawable/ic_setting"/>
+
+</menu>
