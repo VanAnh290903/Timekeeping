@@ -36,7 +36,7 @@ private ActivityTimekeepingBinding binding;
         timekeepings = TimekeepingDatabase.getInstance(getApplicationContext()).timekeepingDAO().getTimekeepingByDate(HelperFunction.getDayNow());
         List<Staff> chuadiemdanh = magic(staffs, timekeepings);
 
-
+//jffjhddfjjdfh
     }
     private List<Staff> magic(List<Staff> staffAll, List<Timekeeping> timekeepings) {
         for (Timekeeping item : timekeepings) {
