@@ -1,264 +1,268 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/_10sdp"
     tools:context=".activities.DetailStaffActivity">
-
     <RelativeLayout
-        android:id="@+id/titleMain"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/titleAddStaff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/add_staff"
-            android:textSize="@dimen/_20ssp"
-            android:textStyle="bold" />
-    </RelativeLayout>
-
-    <ImageView
-        android:id="@+id/img_avtAddStaff"
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_below="@+id/titleMain"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_30sdp"
-        android:src="@drawable/img_avatar_default"
-        android:background="@drawable/bg_circle"/>
-
-
-    <RelativeLayout
-        android:id="@+id/inf_AddGender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/img_avtAddStaff"
-        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_margin="@dimen/_10sdp"
         >
 
+        <RelativeLayout
+            android:id="@+id/titleMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/lable_AddGender"
-            style="@style/StringStaff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/gender"
-            android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/titleAddStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/add_staff"
+                android:textSize="@dimen/_20ssp"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
-        <TextView
-            style="@style/StringStaff"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/img_avtAddStaff"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_below="@+id/titleMain"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:src="@drawable/img_avatar_default"
+            android:background="@drawable/bg_circle"/>
+
+
+        <RelativeLayout
+            android:id="@+id/inf_AddGender"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_95sdp"
-            android:text=":"
-            android:layout_centerVertical="true"/>
-        <RadioGroup
-            android:id="@+id/AddgenderRadioGroup"
-            android:layout_width="wrap_content"
+            android:layout_below="@id/img_avtAddStaff"
+            android:layout_marginTop="@dimen/_20sdp"
+            >
+            <TextView
+                android:id="@+id/lable_AddGender"
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gender"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_95sdp"
+                android:text=":"
+                android:layout_centerVertical="true"/>
+            <RadioGroup
+                android:id="@+id/AddgenderRadioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="@dimen/_80sdp"
+                android:layout_toRightOf="@id/lable_AddGender"
+                >
+
+                <RadioButton
+                    android:id="@+id/staffGenderMa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/male"
+                    style="@style/StringStaff"/>
+
+                <RadioButton
+                    android:id="@+id/staffGenderFe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/female"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    style="@style/StringStaff"/>
+            </RadioGroup>
+
+            <!--        <TextView-->
+            <!--            android:id="@+id/result_UGender"-->
+            <!--            style="@style/StringStaff"-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_marginLeft="@dimen/_120sdp"-->
+            <!--            android:text="@string/female" />-->
+
+            <!--        <TextView-->
+            <!--            android:id="@+id/result_UMale"-->
+            <!--            style="@style/StringStaff"-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_toRightOf="@+id/result_UGender"-->
+            <!--            android:layout_marginLeft="@dimen/_40sdp"-->
+            <!--            android:text="@string/male" />-->
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:id="@+id/inf_AddidStaff"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="@dimen/_80sdp"
-            android:layout_toRightOf="@id/lable_AddGender"
+            android:layout_below="@id/inf_AddGender"
+            android:layout_marginTop="@dimen/_20sdp"
+
             >
 
-            <RadioButton
-                android:id="@+id/staffGenderMa"
+            <TextView
+                android:id="@+id/lable_AddID"
+                style="@style/StringStaff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/male"
-                style="@style/StringStaff"/>
+                android:text="@string/idStaff" />
 
-            <RadioButton
-                android:id="@+id/staffGenderFe"
+            <TextView
+                style="@style/StringStaff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/female"
-                android:layout_marginLeft="@dimen/_20sdp"
-                style="@style/StringStaff"/>
-        </RadioGroup>
+                android:layout_marginLeft="@dimen/_95sdp"
+                android:id="@+id/two_dot_2"
+                android:text=":" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/staffId"
+                android:layout_alignStart="@id/two_dot_2"
+                android:layout_marginStart="@dimen/_10ssp"/>
+        </RelativeLayout>
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/result_UGender"-->
-        <!--            style="@style/StringStaff"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginLeft="@dimen/_120sdp"-->
-        <!--            android:text="@string/female" />-->
-
-        <!--        <TextView-->
-        <!--            android:id="@+id/result_UMale"-->
-        <!--            style="@style/StringStaff"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_toRightOf="@+id/result_UGender"-->
-        <!--            android:layout_marginLeft="@dimen/_40sdp"-->
-        <!--            android:text="@string/male" />-->
-
-    </RelativeLayout>
-
-
-
-    <RelativeLayout
-        android:id="@+id/inf_AddidStaff"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/inf_AddGender"
-        android:layout_marginTop="@dimen/_30sdp"
-
-        >
-
-        <TextView
-            android:id="@+id/lable_AddID"
-            style="@style/StringStaff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/idStaff" />
-
-        <TextView
-            style="@style/StringStaff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_95sdp"
-            android:id="@+id/two_dot_2"
-            android:text=":" />
-        <EditText
+        <RelativeLayout
+            android:id="@+id/inf_AddnameStaff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/staffId"
-            android:layout_alignStart="@id/two_dot_2"
-            android:layout_marginStart="@dimen/_10ssp"/>
-    </RelativeLayout>
+            android:layout_below="@id/inf_AddidStaff"
+            android:layout_marginTop="@dimen/_20sdp"
 
-    <RelativeLayout
-        android:id="@+id/inf_AddnameStaff"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/inf_AddidStaff"
-        android:layout_marginTop="@dimen/_30sdp"
+            >
 
-        >
+            <TextView
+                android:id="@+id/lable_AddName"
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nameStaff" />
 
-        <TextView
-            android:id="@+id/lable_AddName"
-            style="@style/StringStaff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nameStaff" />
+            <TextView
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_95sdp"
+                android:id="@+id/two_dot_3"
+                android:text=":" />
 
-        <TextView
-            style="@style/StringStaff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_95sdp"
-            android:id="@+id/two_dot_3"
-            android:text=":" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/staffName"
+                android:layout_alignStart="@id/two_dot_3"
+                android:layout_marginStart="@dimen/_10ssp"/>
+        </RelativeLayout>
 
-        <EditText
+
+        <RelativeLayout
+            android:id="@+id/inf_AddbirthdayStaff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/staffName"
-            android:layout_alignStart="@id/two_dot_3"
-            android:layout_marginStart="@dimen/_10ssp"/>
-    </RelativeLayout>
+            android:layout_below="@id/inf_AddnameStaff"
+            android:layout_marginTop="@dimen/_30sdp"
 
+            >
 
-    <RelativeLayout
-        android:id="@+id/inf_AddbirthdayStaff"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/inf_AddnameStaff"
-        android:layout_marginTop="@dimen/_30sdp"
+            <TextView
+                android:id="@+id/lable_AddBirthday"
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date_of_birth" />
 
-        >
+            <TextView
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_95sdp"
+                android:id="@+id/two_dot_4"
+                android:text=":" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/staffDateOfBirth"
+                android:layout_alignStart="@id/two_dot_4"
+                android:layout_marginStart="@dimen/_10ssp"/>
 
-        <TextView
-            android:id="@+id/lable_AddBirthday"
-            style="@style/StringStaff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/date_of_birth" />
+        </RelativeLayout>
 
-        <TextView
-            style="@style/StringStaff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_95sdp"
-            android:id="@+id/two_dot_4"
-            android:text=":" />
-        <EditText
+        <RelativeLayout
+            android:id="@+id/inf_AddBasicSalary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/staffDateOfBirth"
-            android:layout_alignStart="@id/two_dot_4"
-            android:layout_marginStart="@dimen/_10ssp"/>
+            android:layout_below="@id/inf_AddbirthdayStaff"
+            android:layout_marginTop="@dimen/_20sdp"
 
-    </RelativeLayout>
+            >
 
-    <RelativeLayout
-        android:id="@+id/inf_AddBasicSalary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/inf_AddbirthdayStaff"
-        android:layout_marginTop="@dimen/_30sdp"
+            <TextView
+                android:id="@+id/lable_AddSalary"
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/basic_salary" />
 
-        >
-
-        <TextView
-            android:id="@+id/lable_AddSalary"
-            style="@style/StringStaff"
+            <TextView
+                style="@style/StringStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_95sdp"
+                android:id="@+id/two_dot_5"
+                android:text=":" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/staffBasicSalary"
+                android:layout_alignStart="@id/two_dot_5"
+                android:layout_marginStart="@dimen/_10ssp"/>
+        </RelativeLayout>
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/basic_salary" />
-
-        <TextView
-            style="@style/StringStaff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_95sdp"
-            android:id="@+id/two_dot_5"
-            android:text=":" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/staffBasicSalary"
-            android:layout_alignStart="@id/two_dot_5"
-            android:layout_marginStart="@dimen/_10ssp"/>
+            android:id="@+id/AddButtons"
+            android:layout_below="@id/inf_AddBasicSalary"
+            android:layout_centerInParent="true"
+            >
+            <Button
+                android:id="@+id/btnAddStaff"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:paddingHorizontal="@dimen/_50sdp"
+                android:text="@string/add_staff"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:backgroundTint="@color/pink"
+                />
+            <Button
+                android:id="@+id/btnCancelAdd"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:paddingHorizontal="@dimen/_50sdp"
+                android:text="@string/cancel"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:backgroundTint="@color/pink_light"
+                android:layout_below="@id/btnAddStaff"
+                android:textColor="@color/black"
+                />
+        </RelativeLayout>
     </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/AddButtons"
-        android:layout_below="@id/inf_AddBasicSalary"
-        android:layout_centerInParent="true"
-        >
-        <Button
-            android:id="@+id/btnAddStaff"
-            android:layout_width="@dimen/_200sdp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="20dp"
-            android:paddingHorizontal="50dp"
-            android:text="@string/add_staff"
-            android:layout_marginTop="30dp"
-            android:backgroundTint="@color/pink"
-            />
-        <Button
-            android:id="@+id/btnCancelAdd"
-            android:layout_width="@dimen/_200sdp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:paddingHorizontal="50dp"
-            android:text="@string/cancel"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@color/pink_light"
-            android:layout_below="@id/btnAddStaff"
-            android:textColor="@color/black"
-            />
-    </RelativeLayout>
-</RelativeLayout>
+</ScrollView>

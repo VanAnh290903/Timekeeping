@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         >
         <RelativeLayout
             android:id="@+id/titleHeader"
@@ -87,7 +84,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/rcvTimeKeepingList"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/_10sdp"
             >
             <Button
                 android:id="@+id/btnCancel"
@@ -115,4 +113,3 @@
 
     </RelativeLayout>
 
-</ScrollView>

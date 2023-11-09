@@ -22,10 +22,13 @@
         android:theme="@style/Theme.Timekeeping"
         tools:targetApi="31">
         <activity
-            android:name=".TimekeepingActivity"
+            android:name=".activities.DetailTimeleepingActivity"
             android:exported="false" />
         <activity
-            android:name=".ReviewActivity"
+            android:name=".activities.TimekeepingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ReviewActivity"
             android:exported="false" />
         <activity
             android:name=".activities.UpdateInFStaff"

@@ -11,15 +11,19 @@
         android:layout_height="wrap_content"
         android:text="time"
         tools:layout_editor_absoluteX="178dp"
-        tools:layout_editor_absoluteY="343dp" />
+        tools:layout_editor_absoluteY="343dp"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnTimeKeeping"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:contentDescription="Chuyen sang trang cham cong"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add"
-        android:layout_margin="@dimen/_15sdp"/>
+        app:srcCompat="@drawable/ic_timekeeping"
+        android:layout_margin="@dimen/_15sdp"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

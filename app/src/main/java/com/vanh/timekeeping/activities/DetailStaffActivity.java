@@ -126,6 +126,13 @@ public class DetailStaffActivity extends AppCompatActivity {
 
             }
         });
+        binding.btnViewDetailTimekeeping.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(getApplicationContext(),DetailStaffActivity.class);
+                startActivity(intent);
+            }
+        });
         binding.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

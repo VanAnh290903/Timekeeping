@@ -21,14 +21,14 @@
                 android:id="@+id/btn_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_prev" />
+                android:src="@drawable/ic_prev"
+                android:layout_centerVertical="true"/>
 
             <TextView
                 android:id="@+id/titleInfStaff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_centerHorizontal="true"
                 android:text="@string/staff_information"
                 android:textSize="@dimen/_20ssp"
                 android:textStyle="bold" />
@@ -96,7 +96,8 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_content"
                 android:paddingVertical="@dimen/_5sdp"
-                android:paddingHorizontal="@dimen/_10sdp">
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:id="@+id/btnViewDetailTimekeeping">
 
                 <TextView
                     android:id="@+id/textView4"
