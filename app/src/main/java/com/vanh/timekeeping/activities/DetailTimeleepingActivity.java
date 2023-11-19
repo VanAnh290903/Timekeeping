@@ -32,5 +32,6 @@ public class DetailTimeleepingActivity extends AppCompatActivity {
         // Lấy TextView từ layout và cập nhật giá trị
         TextView textViewMonthYear = binding.viewMonth;
         textViewMonthYear.setText(formattedDate);
+
     }
 }

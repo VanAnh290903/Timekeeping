@@ -40,6 +40,7 @@
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/groupif"
         android:id="@+id/group_btntk"
+        android:layout_marginTop="@dimen/_10sdp"
         >
       <ImageView
           android:id="@+id/btn_accept"
@@ -68,7 +69,7 @@
             android:src="@drawable/ic_stop"
             android:padding="@dimen/_5sdp"
             android:background="@drawable/bg_inforstaff"
-            android:backgroundTint="@color/pink_light"
+            android:backgroundTint="@color/white"
             android:layout_toRightOf="@+id/btn_late"
             android:layout_marginLeft="@dimen/_20sdp"/>
     </RelativeLayout>

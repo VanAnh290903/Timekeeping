@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.vanh.timekeeping.databinding.ItemTimekeepingBinding;
 import com.vanh.timekeeping.entity.Staff;
 import com.vanh.timekeeping.listeners.TimekeepingListener;
+import com.vanh.timekeeping.ulitilies.Constants;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class TimekeepingAdapter extends RecyclerView.Adapter<TimekeepingAdapter.
         notifyDataSetChanged();
     }
 
-
+// hiển thị dữ liệu ra rcv
     public TimekeepingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ItemTimekeepingBinding itemTimekeepingBinding= ItemTimekeepingBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
         return new TimekeepingViewHolder(itemTimekeepingBinding);
@@ -49,16 +50,54 @@ public class TimekeepingAdapter extends RecyclerView.Adapter<TimekeepingAdapter.
             super(itemTimekeepingBinding.getRoot());
             binding=itemTimekeepingBinding;
         }
-        void setTimekeepingData(Staff timekeeping)
+        void onVis(int status) {
+            switch (status) {
+                case Constants.STATUS_ACCEPT:
+                    binding.btnLate.setAlpha(0.5f);
+                    binding.btnOff.setAlpha(0.5f);
+                    binding.btnAccept.setAlpha(1f);
+                    break;
+                case Constants.STATUS_LATE:
+                    binding.btnAccept.setAlpha(0.5f);
+                    binding.btnOff.setAlpha(0.5f);
+                    binding.btnLate.setAlpha(1f);
+                    break;
+                case Constants.STATUS_OFF:
+                    binding.btnAccept.setAlpha(0.5f);
+                    binding.btnLate.setAlpha(0.5f);
+                    binding.btnOff.setAlpha(1f);
+                    break;
+            }
+        }
+        void setTimekeepingData(Staff staff)
         {
-            binding.staffName.setText(timekeeping.getNameStaff());
-            binding.staffId.setText(timekeeping.getIdStaff());
+            binding.staffName.setText(staff.getNameStaff());
+            binding.staffId.setText(staff.getIdStaff());
             binding.btnAccept.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    timekeepingListener.onAcceptClick();
+                    onVis(Constants.STATUS_ACCEPT);
+                    timekeepingListener.onTimekeeingClick(staff, Constants.STATUS_ACCEPT);
+                }
+            });
+            binding.btnLate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onVis(Constants.STATUS_LATE);
+                     timekeepingListener.onTimekeeingClick(staff, Constants.STATUS_LATE);
+
+                }
+            });
+            binding.btnOff.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onVis(Constants.STATUS_OFF);
+                    timekeepingListener.onTimekeeingClick(staff, Constants.STATUS_OFF);
+
                 }
             });
         }
+
     }
+
 }

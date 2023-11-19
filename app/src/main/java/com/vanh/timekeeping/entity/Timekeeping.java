@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Entity
 public class Timekeeping implements Serializable {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @NonNull
     private int id;
     private String timekeepingDay;
@@ -58,8 +58,7 @@ public class Timekeeping implements Serializable {
         this.createBy = createBy;
     }
 
-    public Timekeeping(int id, String timekeepingDay, String idStaff, int idStatus, int createBy) {
-        this.id = id;
+    public Timekeeping(String timekeepingDay, String idStaff, int idStatus, int createBy) {
         this.timekeepingDay = timekeepingDay;
         this.idStaff = idStaff;
         this.idStatus = idStatus;
