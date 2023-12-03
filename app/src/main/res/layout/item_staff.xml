@@ -2,31 +2,40 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/_70sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_inforstaff"
     android:padding="@dimen/_5sdp"
     android:id="@+id/itemStaff"
     android:layout_marginVertical="@dimen/_5sdp">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imgAvtStaff"
         android:layout_width="@dimen/_64sdp"
         android:layout_height="@dimen/_64sdp"
-        android:src="@drawable/img_avatar_default" />
+        android:src="@drawable/img_avatar_default"
+        app:shapeAppearanceOverlay="@style/circular"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/imgAvtStaff"
         android:id="@+id/staffName"
-        android:textSize="@dimen/_25ssp"
-        android:layout_alignParentTop="true"/>
+        android:maxEms="10"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="@dimen/_20ssp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/_10sdp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/imgAvtStaff"
-
+        android:layout_marginLeft="@dimen/_10sdp"
         android:id="@+id/staffId"
-        android:textSize="@dimen/_16ssp"
+        android:textSize="@dimen/_13ssp"
+        android:maxEms="10"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:layout_alignParentBottom="true"
         />
 </RelativeLayout>
