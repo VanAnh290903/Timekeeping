@@ -68,22 +68,22 @@
                     android:background="@drawable/bg_input_search"
                     android:layout_marginHorizontal="@dimen/_8sdp"
                     android:hint="@string/search"
-                    android:inputType=""
+                    android:inputType="text"
                     android:paddingStart="@dimen/_8sdp"
-                    android:paddingEnd="@dimen/_15sdp"
+                    android:paddingEnd="@dimen/_40sdp"
                     android:paddingVertical="@dimen/_10sdp"
                     android:textSize="@dimen/_13sdp"
                     android:autofillHints="username"
                     />
                 <ImageView
-                    android:id="@+id/icCancel"
+                    android:id="@+id/btnCancelSearch"
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="@dimen/_16sdp"
                     android:src="@drawable/ic_stop"
                     android:layout_centerVertical="true"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     />
             </RelativeLayout>
 
