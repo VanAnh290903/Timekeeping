@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vanh.timekeeping.R;
@@ -20,10 +21,14 @@ import com.vanh.timekeeping.ulitilies.Constants;
 import com.vanh.timekeeping.ulitilies.Gender;
 import com.vanh.timekeeping.ulitilies.HelperFunction;
 
+import java.text.DecimalFormat;
+
 public class DetailStaffActivity extends AppCompatActivity {
 
     private ActivityDetailStaffBinding binding;
     private Staff staff;
+
+    private TextView resultBasicSalary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +45,22 @@ public class DetailStaffActivity extends AppCompatActivity {
             finish();
         }
         setDetail();
-
+//        resultBasicSalary= binding.resultBasicSalary;
+//        double myValue= getDoubleFromTextView(resultBasicSalary);
+//        DecimalFormat decimalFormat= new DecimalFormat("#,###");
+//        String formattedValue= decimalFormat.format(myValue);
+//        resultBasicSalary.setText(formattedValue);
+    }
+    private double getDoubleFromTextView(TextView textView)
+    {
+        try{
+            String stringValue = textView.getText().toString();
+            return Double.parseDouble(stringValue);
+        }catch (NumberFormatException e)
+        {
+            e.printStackTrace();
+            return 0.0;
+        }
     }
     private void setDetail(){
         binding.resultID.setText(staff.getIdStaff());
