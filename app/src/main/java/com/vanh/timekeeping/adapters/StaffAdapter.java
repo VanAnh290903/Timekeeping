@@ -1,6 +1,7 @@
 package com.vanh.timekeeping.adapters;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.vanh.timekeeping.databinding.ItemStaffBinding;
 import com.vanh.timekeeping.entity.Staff;
 import com.vanh.timekeeping.listeners.StaffListener;
 
+import java.io.File;
 import java.util.List;
 
 public class StaffAdapter extends RecyclerView.Adapter<StaffAdapter.StaffViewholder> {
@@ -62,7 +64,12 @@ public class StaffAdapter extends RecyclerView.Adapter<StaffAdapter.StaffViewhol
         void setStaffdata(Staff staff) {
             binding.staffName.setText(staff.getNameStaff());
             binding.staffId.setText(staff.getIdStaff());
-            Picasso.get().load(staff.getAvatar()).into(binding.imgAvtStaff);
+
+//            Picasso.get().load(staff.getAvatar()).into(binding.imgAvtStaff);
+            Picasso.get()
+                    .load(new File(staff.getAvatar()))
+                    .into(binding.imgAvtStaff);  // imageView là ImageView để hiển thị ảnh
+            Log.e("StaffAdapter", staff.getAvatar());
             binding.itemStaff.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

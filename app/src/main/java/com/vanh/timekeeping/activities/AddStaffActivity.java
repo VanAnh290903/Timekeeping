@@ -20,13 +20,24 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.vanh.timekeeping.database.StaffDatabase;
 import com.vanh.timekeeping.databinding.ActivityAddStaffBinding;
 import com.vanh.timekeeping.entity.Staff;
+import com.vanh.timekeeping.ulitilies.Constants;
 import com.vanh.timekeeping.ulitilies.Gender;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class AddStaffActivity extends AppCompatActivity {
 
     private ActivityAddStaffBinding binding;
-ImageView imageView;
-FloatingActionButton buttonCamera;
+    private Uri uriAvatar;
+    ImageView imageView;
+    FloatingActionButton buttonCamera;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +76,7 @@ FloatingActionButton buttonCamera;
                 Staff staff = new Staff(
                         binding.staffId.getText().toString(),
                         binding.staffName.getText().toString(),
-                        imageUrl,
+                        uriAvatar.getPath().toString().isEmpty() ? "" : saveImageToAppFolder(uriAvatar),
                         (binding.staffGenderFe.isChecked()) ? Integer.parseInt(String.valueOf(Gender.FEMALE)) : Integer.parseInt(String.valueOf(Gender.MALE)),
                         binding.staffDateOfBirth.getText().toString(),
                         Double.parseDouble(binding.staffBasicSalary.getText().toString()),
@@ -134,9 +145,45 @@ FloatingActionButton buttonCamera;
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Uri uri= data.getData();
+        uriAvatar= data.getData();
 
-        imageView.setImageURI(uri);
+        imageView.setImageURI(uriAvatar);
+
+    }
+    private String saveImageToAppFolder(Uri uri) {
+        try {
+            InputStream inputStream = getContentResolver().openInputStream(uri);
+            if (inputStream != null) {
+                // Tạo đường dẫn đến thư mục của ứng dụng
+                File appFolder = new File(getFilesDir(), Constants.APP_IMAGES);
+                if (!appFolder.exists()) {
+                    appFolder.mkdirs(); // Tạo thư mục nếu chưa tồn tại
+                }
+
+                // Tạo tên file duy nhất cho ảnh (ví dụ: timestamp.jpg)
+                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
+                String imageFileName = "IMG_" + timeStamp + ".jpg";
+
+                // Tạo đường dẫn đến file trong thư mục của ứng dụng
+                File imageFile = new File(appFolder, imageFileName);
+
+                // Lưu ảnh vào file
+                OutputStream outputStream = new FileOutputStream(imageFile);
+                byte[] buffer = new byte[4096];
+                int bytesRead;
+                while ((bytesRead = inputStream.read(buffer)) != -1) {
+                    outputStream.write(buffer, 0, bytesRead);
+                }
+                inputStream.close();
+                outputStream.close();
+
+                return imageFile.getAbsolutePath();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+        return "";
     }
     private String getRealPathFromUri(Uri uri) {
         String[] projection = {MediaStore.Images.Media.DATA};
