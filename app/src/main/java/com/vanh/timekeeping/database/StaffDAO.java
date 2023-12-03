@@ -23,6 +23,8 @@ public interface StaffDAO {
     @Query("SELECT * FROM Staff")
     List<Staff> getAllStaff();
 
+    @Query("SELECT nameStaff FROM Staff WHERE idStaff = :id")
+    String getNameStaffById(String id);
 
 
 }

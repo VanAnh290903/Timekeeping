@@ -2,84 +2,93 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg">
 
     <RelativeLayout
-        android:id="@+id/titleHeader"
+        android:id="@+id/layout1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_alignParentTop="true">
         <TextView
             android:id="@+id/titleView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+
             android:layout_centerInParent="true"
             android:layout_marginTop="20dp"
             android:text="@string/staff_list"
-            android:textAlignment="center"
-            android:textSize="@dimen/_25ssp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/_20ssp"/>
 
         <ImageView
             android:id="@+id/ic_add_staff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:padding="@dimen/_6sdp"
+            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_add_staff"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_toRightOf="@id/titleView"
-            android:src="@drawable/ic_add_staff" />
+            app:tint="@color/pink" />
     </RelativeLayout>
-
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/titleHeader"
-        android:background="@drawable/backgroundsearch"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/search">
-
-        <ImageView
-            android:id="@+id/icsearchImg"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_search"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="20dp"/>
-
-        <EditText
-            android:id="@+id/search_src_text"
-            android:layout_width="wrap_content"
+        android:layout_below="@id/layout1">
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/icsearchImg"
-            android:hint="@string/search"
-            android:padding="10dp"
+            android:id="@+id/layout2"
+            android:background="@color/white">
+            <EditText
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="@dimen/_8sdp"
+                android:id="@+id/search_src_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input_search"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:hint="@string/search"
+                android:inputType=""
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_15sdp"
+                android:paddingVertical="@dimen/_10sdp"
+                android:textSize="@dimen/_13sdp"
+                android:autofillHints="username"
+                />
+            <ImageView
+                android:id="@+id/icCancel"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:src="@drawable/ic_stop"
+                android:layout_centerVertical="true"
+                android:visibility="gone"
+                />
+            <androidx.recyclerview.widget.RecyclerView
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rcvStaffList"
+                android:layout_below="@id/search_src_text"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"/>
 
-            tools:ignore="TouchTargetSizeCheck" />
 
-        <ImageView
-            android:id="@+id/icCancel"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
-            android:src="@drawable/ic_stop"
-            android:layout_centerVertical="true"
-            />
-    </RelativeLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:paddingHorizontal="@dimen/_8sdp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/rcvStaffList"
-        android:layout_below="@id/search"
-        android:layout_marginTop="@dimen/_20sdp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>
