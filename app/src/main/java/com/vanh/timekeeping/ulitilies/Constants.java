@@ -1,9 +1,10 @@
 package com.vanh.timekeeping.ulitilies;
 
 public class Constants {
-    public static final int VERSION_ROOM = 2;
+    public static final int VERSION_ROOM = 3;
     public static final int IS_ADD_STAFF = 812;
     public static final int IS_UPDATE_STAFF = 123;
+    public static final int IS_TIMEKEEPING = 111;
     public static final int IS_UPDATE_TIMEKEEPING_1 = 0;
     public static final int IS_UPDATE_TIMEKEEPING_2 = 1;
     public static final int IS_UPDATE_TIMEKEEPING_3 = 2;
@@ -14,5 +15,7 @@ public class Constants {
     public static final int STATUS_OFF = 3;
 
     public static final String APP_IMAGES = "app_images";
+    public static final String LIST_TIME_KEEPING = "list_time_keeping";
+    public static final long TIMESTAMP_IN_ONE_DAY = 86400000;
 
 }

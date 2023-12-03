@@ -65,12 +65,14 @@
                 android:layout_centerVertical="true"
                 />
         </RelativeLayout>
-        <TextClock
-            android:format24Hour="d-M-yyyy"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/search"
             android:id="@+id/viewTime"
+            android:gravity="center"
+            android:textSize="@dimen/_18sdp"
+            android:text="dd/MM/YYYY"
             />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -80,7 +82,8 @@
             android:id="@+id/rcvTimeKeepingList"
             android:layout_below="@id/viewTime"
             android:layout_marginTop="@dimen/_20sdp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginBottom="@dimen/_45sdp"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

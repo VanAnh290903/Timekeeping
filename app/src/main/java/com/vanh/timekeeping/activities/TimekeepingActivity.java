@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
@@ -21,11 +22,15 @@ import com.vanh.timekeeping.listeners.TimekeepingListener;
 import com.vanh.timekeeping.ulitilies.Constants;
 import com.vanh.timekeeping.ulitilies.HelperFunction;
 
+import java.io.Serializable;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class TimekeepingActivity extends AppCompatActivity {
 private ActivityTimekeepingBinding binding;
@@ -44,62 +49,64 @@ private ActivityTimekeepingBinding binding;
         setListener();
     }
     private void init(){
+        binding.viewTime.setText(HelperFunction.convertFormTimestampToDay(HelperFunction.getTimestampNow()));
         //Lấy ra tất cả staff
         setRCVListTimekeeping();
-//jffjhddfjjdfh
+
     }
     private List<Staff> magic(List<Staff> staffAll, List<Timekeeping> timekeepings) {
-        for (Timekeeping item : timekeepings) {
-            staffAll.removeIf(staff -> staff.getIdStaff() == item.getIdStaff());
-        }
+        List<String> idsToRemove = timekeepings.stream()
+                .map(Timekeeping::getIdStaff)
+                .collect(Collectors.toList());
+
+        staffAll.removeIf(staff -> idsToRemove.contains(staff.getIdStaff()));
+
         return staffAll;
     }
     private void setListener(){
         binding.btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(getApplicationContext(), MenuTimeKeepingFragment.class);
-                startActivity(intent);
+                finish();
             }
         });
         binding.btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(getApplicationContext(), ReviewActivity.class);
-                startActivity(intent);
+                intent.putExtra(Constants.LIST_TIME_KEEPING, (Serializable)timekeepingsDraft);
+                startActivityForResult(intent, Constants.IS_TIMEKEEPING);
+//                Log.d(TimekeepingActivity.class.toString(), timekeepingsDraft.toString());
             }
         });
     }
     private void setRCVListTimekeeping()
     {
-        ItemTimekeepingBinding bindingIT;
         staffs = StaffDatabase.getInstance(getApplicationContext()).staffDAO().getAllStaff();
         //lấy ra những người đã được điểm danh trong ngày hiện tại
-        timekeepings = TimekeepingDatabase.getInstance(getApplicationContext()).timekeepingDAO().getTimekeepingByDate(HelperFunction.getDayNow());
+        timekeepings = TimekeepingDatabase.getInstance(getApplicationContext()).timekeepingDAO().getTimekeepingByDay(HelperFunction.getTimestampStartOfNow(), HelperFunction.getTimestampEndOfNow());
         List<Staff> chuadiemdanh = magic(staffs, timekeepings);
-        TimekeepingAdapter timekeepingAdapter= new TimekeepingAdapter(staffs, new TimekeepingListener() {
-            int idBtnTimekeeping;
-            Random random= new Random();
-            int maxNumber= 1000;
-            int idRvTk= random.nextInt(maxNumber);
+        TimekeepingAdapter timekeepingAdapter= new TimekeepingAdapter(chuadiemdanh, new TimekeepingListener() {
             @Override
             public void onTimekeeingClick(Staff staff, int status) {
                 // kiểm tra timekeeping này đã có trong timekeepingsDraft chưa, neeys chưa thì add còn rồi thì xóa cái cũ rồi add cái mới
                 //để tạm create by là 1
-                Timekeeping timekeeping = new Timekeeping(HelperFunction.getDayNow(), staff.getIdStaff(), status, 1);
-                Iterator<Timekeeping> timekeepingIterator= timekeepingsDraft.iterator();
-                while(timekeepingIterator.hasNext()){
-                    Timekeeping existingTimekeeping= timekeepingIterator.next();
-                    //kiểm tra tồn tại
-                    if(existingTimekeeping.getTimekeepingDay().equals(timekeeping.getTimekeepingDay())&& existingTimekeeping.getIdStaff()==timekeeping.getIdStaff())
-                    {
-                        timekeepingIterator.remove();
-                        break;
+                Timekeeping timekeeping = new Timekeeping(HelperFunction.getTimestampNow(), staff.getIdStaff(), status, 1);
+                if(timekeepingsDraft != null) {
+                    Iterator<Timekeeping> timekeepingIterator= timekeepingsDraft.iterator();
+                    while(timekeepingIterator.hasNext()){
+                        Timekeeping existingTimekeeping= timekeepingIterator.next();
+                        //kiểm tra tồn tại
+                        if(Objects.equals(existingTimekeeping.getIdStaff(), timekeeping.getIdStaff()))
+                        {
+                            timekeepingIterator.remove();
+                            break;
+                        }
                     }
+                } else {
+                    timekeepingsDraft = new ArrayList<>();
                 }
                 timekeepingsDraft.add(timekeeping);
-                //
-
             }
 
         });
@@ -109,6 +116,10 @@ private ActivityTimekeepingBinding binding;
 
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            setResult(RESULT_OK, new Intent());
+            finish();
+        }
     }
 
 }

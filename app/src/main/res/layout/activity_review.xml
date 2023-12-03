@@ -68,21 +68,24 @@
                 android:layout_centerVertical="true"
                 />
         </RelativeLayout>
-        <TextClock
-            android:format24Hour="d-M-yyyy"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/search"
             android:id="@+id/viewTime"
+            android:gravity="center"
+            android:textSize="@dimen/_18sdp"
+            android:text="dd/MM/YYYY"
             />
+
         <androidx.recyclerview.widget.RecyclerView
-            android:paddingHorizontal="@dimen/_8sdp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/rcvRVTimeKeepingList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_below="@id/viewTime"
             android:layout_marginTop="@dimen/_20sdp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            android:paddingHorizontal="@dimen/_8sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -97,7 +100,7 @@
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="@dimen/_40sdp"
                 android:paddingHorizontal="@dimen/_30sdp"
-                android:text="@string/cancel"
+                android:text="@string/previous"
                 android:backgroundTint="@color/gray"
                 android:textColor="@color/black"
                 />

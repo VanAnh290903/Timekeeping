@@ -23,6 +23,9 @@ public interface StaffDAO {
     @Query("SELECT * FROM Staff")
     List<Staff> getAllStaff();
 
+    @Query("SELECT * FROM Staff where idStaff = :idStaff LIMIT 1")
+    Staff getStaffById(String idStaff);
+
     @Query("SELECT nameStaff FROM Staff WHERE idStaff = :id")
     String getNameStaffById(String id);
 

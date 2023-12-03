@@ -65,11 +65,12 @@ public class StaffAdapter extends RecyclerView.Adapter<StaffAdapter.StaffViewhol
             binding.staffName.setText(staff.getNameStaff());
             binding.staffId.setText(staff.getIdStaff());
 
-//            Picasso.get().load(staff.getAvatar()).into(binding.imgAvtStaff);
-            Picasso.get()
-                    .load(new File(staff.getAvatar()))
-                    .into(binding.imgAvtStaff);  // imageView là ImageView để hiển thị ảnh
-            Log.e("StaffAdapter", staff.getAvatar());
+            if (!staff.getAvatar().isEmpty()) {
+                Picasso.get()
+                        .load(new File(staff.getAvatar()))
+                        .into(binding.imgAvtStaff);  // imageView là ImageView để hiển thị ảnh
+            }
+
             binding.itemStaff.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

@@ -7,11 +7,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
 import com.vanh.timekeeping.databinding.ItemTimekeepingBinding;
 import com.vanh.timekeeping.entity.Staff;
 import com.vanh.timekeeping.listeners.TimekeepingListener;
 import com.vanh.timekeeping.ulitilies.Constants;
 
+import java.io.File;
 import java.util.List;
 
 public class TimekeepingAdapter extends RecyclerView.Adapter<TimekeepingAdapter.TimekeepingViewHolder> {
@@ -73,6 +75,11 @@ public class TimekeepingAdapter extends RecyclerView.Adapter<TimekeepingAdapter.
         {
             binding.staffName.setText(staff.getNameStaff());
             binding.staffId.setText(staff.getIdStaff());
+            if (!staff.getAvatar().isEmpty()) {
+                Picasso.get()
+                        .load(new File(staff.getAvatar()))
+                        .into(binding.imgAvtStaff);  // imageView là ImageView để hiển thị ảnh
+            }
             binding.btnAccept.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

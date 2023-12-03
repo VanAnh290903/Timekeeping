@@ -13,7 +13,7 @@ public class Timekeeping implements Serializable {
     @PrimaryKey(autoGenerate = true)
     @NonNull
     private int id;
-    private String timekeepingDay;
+    private long timekeepingDay;
     private String idStaff;
     private int idStatus;
     private int createBy;
@@ -26,11 +26,11 @@ public class Timekeeping implements Serializable {
         this.id = id;
     }
 
-    public String getTimekeepingDay() {
+    public long getTimekeepingDay() {
         return timekeepingDay;
     }
 
-    public void setTimekeepingDay(String timekeepingDay) {
+    public void setTimekeepingDay(long timekeepingDay) {
         this.timekeepingDay = timekeepingDay;
     }
 
@@ -58,7 +58,7 @@ public class Timekeeping implements Serializable {
         this.createBy = createBy;
     }
 
-    public Timekeeping(String timekeepingDay, String idStaff, int idStatus, int createBy) {
+    public Timekeeping(long timekeepingDay, String idStaff, int idStatus, int createBy) {
         this.timekeepingDay = timekeepingDay;
         this.idStaff = idStaff;
         this.idStatus = idStatus;

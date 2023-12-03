@@ -1,29 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:background="@color/bg">
+
+<RelativeLayout
+    android:id="@+id/layout1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    android:layout_alignParentTop="true">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/titleView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="time"
-        tools:layout_editor_absoluteX="178dp"
-        tools:layout_editor_absoluteY="343dp"
-        tools:ignore="MissingConstraints" />
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:gravity="center"
 
+        android:text="@string/timekeeping_list"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20ssp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_below="@id/layout1"
+    android:background="@color/white">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout2"
+        >
+        <RelativeLayout
+            android:id="@+id/layoutSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="@dimen/_8sdp"
+                android:id="@+id/search_src_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input_search"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:hint="@string/search"
+                android:inputType="text"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_40sdp"
+                android:paddingVertical="@dimen/_10sdp"
+                android:textSize="@dimen/_13sdp"
+                android:autofillHints="username"
+                />
+            <ImageView
+                android:id="@+id/btnCancelSearch"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:src="@drawable/ic_stop"
+                android:layout_centerVertical="true"
+                android:visibility="gone"
+                />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layoutCalendar"
+            android:layout_below="@+id/layoutSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true">
+
+            <ImageButton
+                android:background="@drawable/bg_circle"
+                android:id="@+id/btnPrevDay"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_prev"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="dd/MM/YYYY"
+                android:textSize="@dimen/_18sdp"
+                android:layout_gravity="center"/>
+
+            <ImageButton
+                android:background="@drawable/bg_circle"
+                android:id="@+id/btnNextDay"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_next" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/rcvTimekeepingList"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_below="@id/layoutCalendar"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp">
+
+
+        </androidx.recyclerview.widget.RecyclerView>
+        <TextView
+            android:id="@+id/notificationNoneTimekeepingOfNow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_20sdp"
+            android:textColor="@color/red"
+            android:text="Chưa có nhân viên nào được chấm công trong ngày hôm nay! Hãy nhấn biểu tượng chấm công để chấm công nhân viên"
+            android:layout_below="@id/layoutCalendar"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/_10sdp"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+</ScrollView>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnTimeKeeping"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
         android:contentDescription="Chuyen sang trang cham cong"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         app:srcCompat="@drawable/ic_timekeeping"
-        android:layout_margin="@dimen/_15sdp"
+        android:layout_marginHorizontal="@dimen/_13sdp"
+        android:layout_marginVertical="@dimen/_13ssp"
         />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

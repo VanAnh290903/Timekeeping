@@ -52,4 +52,5 @@
     <string name="salary_list">Salary list</string>
     <!--Search-->
     <string name="search">Search</string>
+    <string name="previous">Previous</string>
 </resources>

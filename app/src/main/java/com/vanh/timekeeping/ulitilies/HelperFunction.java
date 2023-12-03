@@ -10,6 +10,11 @@ import android.util.Base64;
 import android.view.inputmethod.InputMethodManager;
 
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class HelperFunction {
@@ -55,5 +60,45 @@ public class HelperFunction {
         Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY");
         return dateFormat.format(date);
+    }
+    public static long getTimestampStartOfDay(long timestamp) {
+        LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(timestamp), ZoneOffset.UTC);
+
+        // Lấy ngày từ LocalDateTime
+        LocalDateTime startOfDay = dateTime.toLocalDate().atStartOfDay();
+
+        // Chuyển startOfDay thành timestamp
+        return startOfDay.toInstant(ZoneOffset.UTC).toEpochMilli();
+    }
+    public static long getTimestampEndOfDay(long timestamp) {
+        // Chuyển timestamp thành LocalDateTime
+        LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(timestamp), ZoneOffset.UTC);
+
+        // Lấy ngày từ LocalDateTime và thêm một ngày
+        LocalDateTime endOfDay = dateTime.toLocalDate().atStartOfDay().plusDays(1).minusSeconds(1);
+
+        // Chuyển endOfDay thành timestamp
+        return endOfDay.toInstant(ZoneOffset.UTC).toEpochMilli();
+    }
+
+    public static long getTimestampStartOfNow() {
+        LocalDateTime startOfToday = LocalDate.now().atStartOfDay();
+        return startOfToday.toInstant(ZoneOffset.UTC).toEpochMilli();
+    }
+    public static long getTimestampEndOfNow() {
+        LocalDateTime endOfToday = LocalDate.now().atStartOfDay().plusDays(1).minusSeconds(1);
+        return endOfToday.toInstant(ZoneOffset.UTC).toEpochMilli();
+    }
+    public static long getTimestampNow() {
+        return System.currentTimeMillis();
+    }
+    public static String convertFormTimestampToDay(long timestamp) {
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(timestamp), java.time.ZoneId.systemDefault());
+
+        // Tạo đối tượng DateTimeFormatter với định dạng "dd/MM/yyyy"
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        // Chuyển LocalDateTime thành chuỗi theo định dạng
+        return localDateTime.format(formatter);
     }
 }

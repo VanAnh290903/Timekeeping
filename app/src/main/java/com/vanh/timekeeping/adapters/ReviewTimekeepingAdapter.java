@@ -3,24 +3,32 @@ package com.vanh.timekeeping.adapters;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+import com.vanh.timekeeping.R;
+import com.vanh.timekeeping.database.StaffDatabase;
 import com.vanh.timekeeping.databinding.ItemifRvTimeskeepingBinding;
+import com.vanh.timekeeping.entity.Staff;
 import com.vanh.timekeeping.entity.Timekeeping;
+import com.vanh.timekeeping.listeners.StaffListener;
 import com.vanh.timekeeping.listeners.TimekeepingListener;
+import com.vanh.timekeeping.ulitilies.Constants;
 
+import java.io.File;
 import java.util.List;
 
 public class ReviewTimekeepingAdapter extends RecyclerView.Adapter<ReviewTimekeepingAdapter.ReviewTimekeepingAdapterholder>{
     public List<Timekeeping> timekeepingList;
-    public TimekeepingListener timekeepingListener;
+    public StaffListener staffListener;
 
 
-    public ReviewTimekeepingAdapter(List<Timekeeping> timekeepingList, TimekeepingListener timekeepingListener) {
+    public ReviewTimekeepingAdapter(List<Timekeeping> timekeepingList, StaffListener staffListener) {
         this.timekeepingList = timekeepingList;
-        this.timekeepingListener = timekeepingListener;
+        this.staffListener = staffListener;
 
         notifyDataSetChanged();
 
@@ -36,12 +44,12 @@ public class ReviewTimekeepingAdapter extends RecyclerView.Adapter<ReviewTimekee
 
     @Override
     public void onBindViewHolder(@NonNull ReviewTimekeepingAdapterholder holder, int position) {
-
+        holder.setRVTimekeepingData(timekeepingList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return timekeepingList.size();
     }
 
 
@@ -55,8 +63,26 @@ public class ReviewTimekeepingAdapter extends RecyclerView.Adapter<ReviewTimekee
         }
 
         void setRVTimekeepingData(Timekeeping timekeeping){
-                binding.staffId.setText(timekeeping.getIdStaff());
+            Staff staff = StaffDatabase.getInstance(itemView.getContext()).staffDAO().getStaffById(timekeeping.getIdStaff());
+            binding.staffId.setText(timekeeping.getIdStaff());
+            binding.staffName.setText(staff.getNameStaff());
+            if (timekeeping.getIdStatus() == Constants.STATUS_ACCEPT) {
+                binding.resultBtn.setImageResource(R.drawable.ic_accept);
+            } else if (timekeeping.getIdStatus() == Constants.STATUS_LATE) {
+                binding.resultBtn.setImageResource(R.drawable.ic_alarmtime);
+            } else if (timekeeping.getIdStatus() == Constants.STATUS_OFF) {
+                binding.resultBtn.setImageResource(R.drawable.ic_stop);
+            } else
 
+            if (!staff.getAvatar().isEmpty()) {
+                Picasso.get()
+                        .load(new File(staff.getAvatar()))
+                        .into(binding.imgAvtStaff);  // imageView là ImageView để hiển thị ảnh
+            }
+
+            binding.getRoot().setOnClickListener(v -> {
+                staffListener.onStaffClicked(staff);
+            });
         }
     }
 }

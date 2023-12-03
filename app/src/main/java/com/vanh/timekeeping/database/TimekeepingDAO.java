@@ -22,6 +22,6 @@ public interface TimekeepingDAO {
     @Delete
     void deleteTimekeeping(Timekeeping timekeeping);
 
-    @Query("SELECT * FROM Timekeeping WHERE timekeepingDay == :date")
-    List<Timekeeping> getTimekeepingByDate(String date);
+    @Query("SELECT * FROM Timekeeping WHERE  timekeepingDay >= :startOfDayTimestamp AND timekeepingDay <= :endOfDayTimestamp")
+    List<Timekeeping> getTimekeepingByDay(long startOfDayTimestamp, long endOfDayTimestamp);
 }
