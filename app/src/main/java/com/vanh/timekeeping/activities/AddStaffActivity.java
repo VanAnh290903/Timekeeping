@@ -7,6 +7,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -23,14 +25,17 @@ import com.vanh.timekeeping.entity.Staff;
 import com.vanh.timekeeping.ulitilies.Constants;
 import com.vanh.timekeeping.ulitilies.Gender;
 
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.text.ParseException;
 
 public class AddStaffActivity extends AppCompatActivity {
 
@@ -38,6 +43,8 @@ public class AddStaffActivity extends AppCompatActivity {
     private Uri uriAvatar;
     ImageView imageView;
     FloatingActionButton buttonCamera;
+    private SimpleDateFormat dateFormat;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,21 +57,21 @@ public class AddStaffActivity extends AppCompatActivity {
 
     private void init(){
 //        Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(new ColorDrawable(getColor()));
-      imageView = binding.shapeableImageView;
-      buttonCamera= binding.Camera;
-      buttonCamera.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
+        imageView = binding.shapeableImageView;
+        buttonCamera= binding.Camera;
+        buttonCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
 
 
-              ImagePicker.with(AddStaffActivity.this)
-                      .crop()	    			//Crop image(Optional), Check Customization for more option
-                      .compress(1024)			//Final image size will be less than 1 MB(Optional)
-                      .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
-                      .start();
-          }
-      });
+                ImagePicker.with(AddStaffActivity.this)
+                        .crop()	    			//Crop image(Optional), Check Customization for more option
+                        .compress(1024)			//Final image size will be less than 1 MB(Optional)
+                        .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
+                        .start();
+            }
+        });
     }
 
 
@@ -94,9 +101,66 @@ public class AddStaffActivity extends AppCompatActivity {
                 finish();
             }
         });
+        //chỉ cho nhập date
+//        dateFormat= new SimpleDateFormat("dd/MM/yyyy");
+//        binding.staffDateOfBirth.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//                validateDate(editable.toString());
+//            }
+//        });
         binding.btnCancelAdd.setOnClickListener(view -> {
             finish();
         });
+
+    }
+    private boolean validateDate( String inputDate)
+    {
+        try {
+            Date date= dateFormat.parse(inputDate);
+
+            if(isOver18t(date))
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+            binding.staffDateOfBirth.setError("Không hợp lệ");
+            return false;
+        }
+    }
+    //check 18t
+    private boolean isOver18t(Date birthday)
+    {
+        Calendar Birthcal= Calendar.getInstance();
+        Birthcal.setTime(birthday);
+        Calendar currentCalendar = Calendar.getInstance();
+        int age = currentCalendar.get(Calendar.YEAR)- Birthcal.get(Calendar.YEAR);
+        if(age<18|| (age==18 && currentCalendar.get(Calendar.DAY_OF_YEAR) < Birthcal.get(Calendar.DAY_OF_YEAR)) || (age==18 && currentCalendar.get(Calendar.MONTH)< Birthcal.get(Calendar.MONTH))){
+            int daysRemaining = Birthcal.get(Calendar.DAY_OF_YEAR)-currentCalendar.get(Calendar.DAY_OF_YEAR);
+            binding.staffDateOfBirth.setError("Chưa đủ 18t");
+            return false;
+        }
+        else if(Birthcal.get(Calendar.YEAR)<1900|| Birthcal.get(Calendar.YEAR)>currentCalendar.get(Calendar.YEAR))
+        {
+            binding.staffDateOfBirth.setError("không hợp lý");
+            return false;
+        }
+        return true;
     }
     private String getImageUrlFromImageView() {
         if (imageView.getDrawable() instanceof BitmapDrawable) {
@@ -131,9 +195,14 @@ public class AddStaffActivity extends AppCompatActivity {
             Toast.makeText(this, "Please, enter name staff", Toast.LENGTH_SHORT).show();
             return false;
         }else if(binding.staffDateOfBirth.getText().toString().trim().isEmpty()) {
+
             Toast.makeText(this, "Please, enter date of birth", Toast.LENGTH_SHORT).show();
             return false;
-        }else if(binding.staffBasicSalary.getText().toString().trim().isEmpty()) {
+//        }else if (!validateDate(binding.staffDateOfBirth.getText().toString())) {
+////            binding.staffDateOfBirth.setError("chưa đủ 18t");
+//            Toast.makeText(this, binding.staffDateOfBirth.getError(), Toast.LENGTH_SHORT).show();
+//            return false;
+        } else if(binding.staffBasicSalary.getText().toString().trim().isEmpty()) {
             Toast.makeText(this, "Please, enter basic salary", Toast.LENGTH_SHORT).show();
             return false;
         }else {
