@@ -1,9 +1,10 @@
 package com.vanh.timekeeping.activities;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -68,38 +69,37 @@ public class DetailStaffActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-//                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getApplicationContext());
-//                alertDialogBuilder.setTitle("ngu");
-//                alertDialogBuilder.setMessage("ngu moi xoa");
-//                alertDialogBuilder.setCancelable(false); // Ngăn người dùng tắt hộp thoại bằng cách chạm ra ngoài
+//                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+//                builder.setTitle("Xác nhận");
+//                builder.setMessage("Bạn có chắc chắn muốn thực hiện hành động này?");
 //
-//                alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
 //                    @Override
 //                    public void onClick(DialogInterface dialog, int which) {
-//                        // Xử lý sự kiện khi người dùng bấm nút Yes
-//                        dialog.dismiss(); // Đóng hộp thoại
+                        StaffDatabase.getInstance(getApplicationContext()).staffDAO().deleteStaff(staff);
+                        Toast.makeText(DetailStaffActivity.this, "Del success", Toast.LENGTH_SHORT).show();
+
+                        Intent resultIntent = new Intent();
+                        // Đặt kết quả thành RESULT_OK và gửi dữ liệu kết quả về Activity Main
+                        setResult(RESULT_OK, resultIntent);
+
+                        finish();
+//                        dialog.dismiss();
 //                    }
 //                });
 //
-//                alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
 //                    @Override
 //                    public void onClick(DialogInterface dialog, int which) {
-//                        // Xử lý sự kiện khi người dùng bấm nút No
-//                        dialog.dismiss(); // Đóng hộp thoại
+//                        // Xử lý khi người dùng hủy bỏ
+//                        // Ví dụ: đóng hộp thoại
+//                        dialog.dismiss();
 //                    }
 //                });
 //
-//                AlertDialog alertDialog = alertDialogBuilder.create();
-//                alertDialog.show(); // Hiển thị hộp thoại
+//                AlertDialog dialog = builder.create();
+//                dialog.show();
 
-                StaffDatabase.getInstance(getApplicationContext()).staffDAO().deleteStaff(staff);
-                Toast.makeText(DetailStaffActivity.this, "Del sc", Toast.LENGTH_SHORT).show();
-
-                Intent resultIntent = new Intent();
-                // Đặt kết quả thành RESULT_OK và gửi dữ liệu kết quả về Activity Main
-                setResult(RESULT_OK, resultIntent);
-
-                finish();
             }
         });
         binding.btnUpdate.setOnClickListener(new View.OnClickListener() {
@@ -126,6 +126,7 @@ public class DetailStaffActivity extends AppCompatActivity {
 
             }
         });
+
         binding.btnViewDetailTimekeeping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
