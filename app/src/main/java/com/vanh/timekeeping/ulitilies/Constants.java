@@ -13,5 +13,6 @@ public class Constants {
     public static final int STATUS_LATE = 2;
     public static final int STATUS_OFF = 3;
 
+    public static final String APP_IMAGES = "app_images";
 
 }
