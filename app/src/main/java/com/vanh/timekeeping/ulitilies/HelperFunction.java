@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -83,12 +84,14 @@ public class HelperFunction {
 
     public static long getTimestampStartOfNow() {
         LocalDateTime startOfToday = LocalDate.now().atStartOfDay();
-        return startOfToday.toInstant(ZoneOffset.UTC).toEpochMilli();
+        return startOfToday.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
     }
+
     public static long getTimestampEndOfNow() {
         LocalDateTime endOfToday = LocalDate.now().atStartOfDay().plusDays(1).minusSeconds(1);
-        return endOfToday.toInstant(ZoneOffset.UTC).toEpochMilli();
+        return endOfToday.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
     }
+
     public static long getTimestampNow() {
         return System.currentTimeMillis();
     }

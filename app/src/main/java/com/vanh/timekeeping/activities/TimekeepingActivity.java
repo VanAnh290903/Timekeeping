@@ -84,8 +84,12 @@ private ActivityTimekeepingBinding binding;
     {
         staffs = StaffDatabase.getInstance(getApplicationContext()).staffDAO().getAllStaff();
         //lấy ra những người đã được điểm danh trong ngày hiện tại
-        timekeepings = TimekeepingDatabase.getInstance(getApplicationContext()).timekeepingDAO().getTimekeepingByDay(HelperFunction.getTimestampStartOfNow(), HelperFunction.getTimestampEndOfNow());
+        timekeepings = TimekeepingDatabase.getInstance(getApplicationContext()).timekeepingDAO().getTimekeepingByDay(HelperFunction.getTimestampStartOfDay(HelperFunction.getTimestampNow()), HelperFunction.getTimestampEndOfDay(HelperFunction.getTimestampNow()));
         List<Staff> chuadiemdanh = magic(staffs, timekeepings);
+        if (chuadiemdanh.isEmpty()) {
+            setResult(RESULT_CANCELED, new Intent());
+            finish();
+        }
         TimekeepingAdapter timekeepingAdapter= new TimekeepingAdapter(chuadiemdanh, new TimekeepingListener() {
             @Override
             public void onTimekeeingClick(Staff staff, int status) {

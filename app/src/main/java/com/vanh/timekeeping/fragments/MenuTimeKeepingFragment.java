@@ -49,7 +49,7 @@ public class MenuTimeKeepingFragment extends Fragment {
     private void init() {
         currentTimestamp = HelperFunction.getTimestampNow();
         binding.textView3.setText(HelperFunction.convertFormTimestampToDay(currentTimestamp));
-        setRCV(HelperFunction.getTimestampStartOfNow(), HelperFunction.getTimestampEndOfNow());
+        setRCV(HelperFunction.getTimestampStartOfDay(HelperFunction.getTimestampNow()), HelperFunction.getTimestampEndOfDay(HelperFunction.getTimestampNow()));
         setEnable();
     }
     private void setEnable() {
@@ -65,11 +65,12 @@ public class MenuTimeKeepingFragment extends Fragment {
                 timekeepingDAO().
                 getTimekeepingByDay(start, end);
         if (timekeepings.isEmpty()) {
-            if (currentTimestamp == HelperFunction.getTimestampNow()) {
-                binding.notificationNoneTimekeepingOfNow.setVisibility(View.VISIBLE);
+            binding.notificationNoneTimekeepingOfNow.setVisibility(View.VISIBLE);
+            binding.rcvTimekeepingList.setVisibility(View.GONE);
+            if (HelperFunction.getTimestampStartOfDay(currentTimestamp) == HelperFunction.getTimestampStartOfDay(HelperFunction.getTimestampNow())) {
+                binding.notificationNoneTimekeepingOfNow.setText("Data empty main");
             } else {
-                binding.notificationNoneTimekeepingOfNow.setVisibility(View.VISIBLE);
-                binding.rcvTimekeepingList.setVisibility(View.GONE);
+
                 binding.notificationNoneTimekeepingOfNow.setText("Data empty");
             }
         } else {
@@ -109,7 +110,10 @@ public class MenuTimeKeepingFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Constants.IS_TIMEKEEPING && resultCode == getActivity().RESULT_OK) {
             Toast.makeText(getContext(), "ok", Toast.LENGTH_SHORT).show();
-            setRCV(HelperFunction.getTimestampStartOfNow(), HelperFunction.getTimestampEndOfNow());
+            setRCV(HelperFunction.getTimestampStartOfDay(HelperFunction.getTimestampNow()), HelperFunction.getTimestampEndOfDay(HelperFunction.getTimestampNow()));
+        }
+        if (requestCode == Constants.IS_TIMEKEEPING && resultCode == getActivity().RESULT_CANCELED) {
+            Toast.makeText(getContext(), "Đã chấm công hết các nhân viên trong ngày hôm nay", Toast.LENGTH_SHORT).show();
         }
     }
 }
