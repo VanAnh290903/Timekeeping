@@ -69,45 +69,47 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/img_avtAddStaff"
             android:layout_marginTop="@dimen/_20sdp"
-            >
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true">
+
             <TextView
                 android:id="@+id/lable_AddGender"
                 style="@style/StringStaff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/gender"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true"
+                android:text="@string/gender" />
 
             <TextView
                 style="@style/StringStaff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/_95sdp"
-                android:text=":"
-                android:layout_centerVertical="true"/>
+                android:text=":" />
+
             <RadioGroup
                 android:id="@+id/AddgenderRadioGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="@dimen/_80sdp"
+                android:layout_marginLeft="@dimen/_60sdp"
                 android:layout_toRightOf="@id/lable_AddGender"
-                >
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/staffGenderMa"
+                    style="@style/StringStaff"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/male"
-                    style="@style/StringStaff"/>
+                    android:text="@string/male" />
 
                 <RadioButton
                     android:id="@+id/staffGenderFe"
+                    style="@style/StringStaff"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/female"
-                    android:layout_marginLeft="@dimen/_20sdp"
-                    style="@style/StringStaff"/>
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:text="@string/female" />
             </RadioGroup>
 
             <!--        <TextView-->
@@ -158,6 +160,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/staffId"
+                android:maxLength="30"
                 android:layout_alignStart="@id/two_dot_2"
                 android:layout_marginStart="@dimen/_10ssp"
                 android:hint="NV01"/>
@@ -193,7 +196,8 @@
                 android:id="@+id/staffName"
                 android:layout_alignStart="@id/two_dot_3"
                 android:layout_marginStart="@dimen/_10ssp"
-                android:hint="Fullname"/>
+                android:hint="Fullname"
+                android:inputType="text"/>
         </RelativeLayout>
 
 
@@ -220,13 +224,15 @@
                 android:layout_marginLeft="@dimen/_95sdp"
                 android:id="@+id/two_dot_4"
                 android:text=":" />
+
             <EditText
+                android:id="@+id/staffDateOfBirth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/staffDateOfBirth"
                 android:layout_alignStart="@id/two_dot_4"
-                android:layout_marginStart="@dimen/_10ssp"
-                android:hint="12/12/2002"/>
+                android:layout_marginStart="@dimen/_10sdp"
+                android:hint="dd/MM/YYYY"
+                android:inputType="date" />
 
         </RelativeLayout>
 
@@ -260,6 +266,8 @@
                 android:layout_alignStart="@id/two_dot_5"
                 android:layout_marginStart="@dimen/_10ssp"
                 android:hint="10000000"
+                android:inputType="number"
+                android:maxLength="10"
                 />
         </RelativeLayout>
         <RelativeLayout
@@ -294,6 +302,8 @@
                 android:textColor="@color/black"
                 />
         </RelativeLayout>
+
+
 
 
     </RelativeLayout>
