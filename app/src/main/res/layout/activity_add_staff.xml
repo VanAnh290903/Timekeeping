@@ -224,14 +224,15 @@
                 android:layout_marginLeft="@dimen/_95sdp"
                 android:id="@+id/two_dot_4"
                 android:text=":" />
+
             <EditText
+                android:id="@+id/staffDateOfBirth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/staffDateOfBirth"
                 android:layout_alignStart="@id/two_dot_4"
-                android:layout_marginStart="@dimen/_10ssp"
-                android:hint="12/12/2002"
-                android:inputType="date"/>
+                android:layout_marginStart="@dimen/_10sdp"
+                android:hint="dd/MM/YYYY"
+                android:inputType="date" />
 
         </RelativeLayout>
 
