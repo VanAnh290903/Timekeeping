@@ -139,7 +139,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/inf_AddGender"
             android:layout_marginTop="@dimen/_20sdp"
-
             >
 
             <TextView
