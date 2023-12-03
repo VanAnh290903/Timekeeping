@@ -26,17 +26,42 @@
                 android:textSize="@dimen/_20ssp"
                 android:textStyle="bold" />
         </RelativeLayout>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/img_avtAddStaff"
+    android:layout_below="@+id/titleMain"
+    android:layout_centerHorizontal="true">
 
-        <ImageView
-            android:id="@+id/img_avtAddStaff"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"
-            android:layout_below="@+id/titleMain"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:src="@drawable/img_avatar_default"
-            android:background="@drawable/bg_circle"/>
+    <com.google.android.material.imageview.ShapeableImageView
 
+        android:id="@+id/shapeableImageView"
+        android:layout_width="@dimen/_100sdp"
+
+        app:shapeAppearanceOverlay="@style/circular"
+        android:layout_height="@dimen/_100sdp"
+        android:background="@drawable/bg_circle"
+        android:src="@drawable/img_avatar_default"
+        tools:ignore="MissingConstraints"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+        android:id="@+id/Camera"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
+        app:srcCompat="@drawable/vector__1_"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="@dimen/_70sdp"
+        android:contentDescription="Open Camera"
+        android:background="@drawable/bg_circle"
+        app:shapeAppearanceOverlay="@style/circular"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
         <RelativeLayout
             android:id="@+id/inf_AddGender"
@@ -134,7 +159,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/staffId"
                 android:layout_alignStart="@id/two_dot_2"
-                android:layout_marginStart="@dimen/_10ssp"/>
+                android:layout_marginStart="@dimen/_10ssp"
+                android:hint="NV01"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -166,7 +192,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/staffName"
                 android:layout_alignStart="@id/two_dot_3"
-                android:layout_marginStart="@dimen/_10ssp"/>
+                android:layout_marginStart="@dimen/_10ssp"
+                android:hint="Fullname"/>
         </RelativeLayout>
 
 
@@ -198,7 +225,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/staffDateOfBirth"
                 android:layout_alignStart="@id/two_dot_4"
-                android:layout_marginStart="@dimen/_10ssp"/>
+                android:layout_marginStart="@dimen/_10ssp"
+                android:hint="12/12/2002"/>
 
         </RelativeLayout>
 
@@ -230,7 +258,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/staffBasicSalary"
                 android:layout_alignStart="@id/two_dot_5"
-                android:layout_marginStart="@dimen/_10ssp"/>
+                android:layout_marginStart="@dimen/_10ssp"
+                android:hint="10000000"
+                />
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -264,5 +294,7 @@
                 android:textColor="@color/black"
                 />
         </RelativeLayout>
+
+
     </RelativeLayout>
 </ScrollView>

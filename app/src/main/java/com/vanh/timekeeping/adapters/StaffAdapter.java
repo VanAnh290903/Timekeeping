@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
 import com.vanh.timekeeping.activities.DetailStaffActivity;
 import com.vanh.timekeeping.databinding.ItemStaffBinding;
 import com.vanh.timekeeping.entity.Staff;
@@ -61,6 +62,7 @@ public class StaffAdapter extends RecyclerView.Adapter<StaffAdapter.StaffViewhol
         void setStaffdata(Staff staff) {
             binding.staffName.setText(staff.getNameStaff());
             binding.staffId.setText(staff.getIdStaff());
+            Picasso.get().load(staff.getAvatar()).into(binding.imgAvtStaff);
             binding.itemStaff.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
